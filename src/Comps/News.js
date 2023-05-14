@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import NewsItem from './NewsItem'
@@ -15,7 +16,6 @@ const News = (props)=>{
   const capitalizeFirstLetter = (string)=> {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
-  document.title= `${capitalizeFirstLetter(props.category)} - News4You`
   
     const updateNews = async ()=>{
       props.setProgress(10);
@@ -24,6 +24,7 @@ const News = (props)=>{
       let data = await fetch(url);
       props.setProgress(30);
       let parsedData = await data.json();
+      console.log(parsedData)
       props.setProgress(70);
       setArticles(parsedData.articles)
       setTotalResults(parsedData.totalResults)
@@ -32,6 +33,7 @@ const News = (props)=>{
     }
 
     useEffect(()=>{
+      document.title= `${capitalizeFirstLetter(props.category)} - News4You`
       updateNews();
     }, [])
 
