@@ -5,7 +5,6 @@ import NewsItem from './NewsItem'
 import Spinner from './Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";//using from npmjs
 
-// 18b1ad644e834eb698ea2e7847387adb outlook
 const News = (props)=>{
   const [articles, setArticles] = useState([])
   const [loading, setLoading] = useState(true)
